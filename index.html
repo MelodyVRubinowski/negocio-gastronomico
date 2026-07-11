@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gastronomía - Escuela de Cocina, Restaurante & Rotisería</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">🍽️ Gastronomía</div>
+            <ul class="nav-menu">
+                <li><a href="#escuela" class="nav-link">Escuela de Cocina</a></li>
+                <li><a href="#restaurante" class="nav-link">Restaurante</a></li>
+                <li><a href="#rotiseria" class="nav-link">Rotisería</a></li>
+                <li><a href="#carrito" class="nav-link carrito-link">🛒 Pedido <span id="contador-pedido" class="contador">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bienvenido a Gastronomía</h1>
+            <p>Donde la pasión por la cocina se convierte en experiencia</p>
+            <p class="hero-subtitle">Descubre nuestras tres líneas de negocio: aprende, disfruta y lleva</p>
+        </div>
+    </section>
+
+    <!-- SECCIONES PRINCIPALES -->
+    <main>
+        <!-- 1. ESCUELA DE COCINA -->
+        <section id="escuela" class="unidad-negocio">
+            <div class="section-header">
+                <h2>📚 Escuela de Cocina</h2>
+                <p>Aprende de chefs profesionales en un ambiente acogedor</p>
+            </div>
+            <div class="escuela-content">
+                <div class="escuela-card">
+                    <img src="https://via.placeholder.com/300x200?text=Cocina+Italiana" alt="Cocina Italiana">
+                    <h3>Cocina Italiana Auténtica</h3>
+                    <p>Domina las técnicas tradicionales italianas con nuestros expertos chefs.</p>
+                    <p class="precio">$150 por sesión</p>
+                    <button class="btn btn-inscripcion" onclick="abrirWhatsApp('escuela', 'Cocina Italiana Auténtica')">Inscribirse</button>
+                </div>
+                <div class="escuela-card">
+                    <img src="https://via.placeholder.com/300x200?text=Pastas+Caseras" alt="Pastas Caseras">
+                    <h3>Pastas Caseras</h3>
+                    <p>Aprende a hacer pasta fresca desde cero con ingredientes de calidad.</p>
+                    <p class="precio">$120 por sesión</p>
+                    <button class="btn btn-inscripcion" onclick="abrirWhatsApp('escuela', 'Pastas Caseras')">Inscribirse</button>
+                </div>
+                <div class="escuela-card">
+                    <img src="https://via.placeholder.com/300x200?text=Pizzas+Artesanales" alt="Pizzas Artesanales">
+                    <h3>Pizzas Artesanales</h3>
+                    <p>Domina el arte de la pizza napoletana con técnicas ancestrales.</p>
+                    <p class="precio">$130 por sesión</p>
+                    <button class="btn btn-inscripcion" onclick="abrirWhatsApp('escuela', 'Pizzas Artesanales')">Inscribirse</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. RESTAURANTE ITALIANO -->
+        <section id="restaurante" class="unidad-negocio">
+            <div class="section-header">
+                <h2>🍝 Restaurante Italiano</h2>
+                <p>Disfruta de auténtica cocina italiana en un ambiente elegante</p>
+            </div>
+            
+            <!-- MENÚ INTERACTIVO -->
+            <div class="menu-container">
+                <div class="menu-filters">
+                    <button class="filter-btn active" data-category="todos">Todos</button>
+                    <button class="filter-btn" data-category="entradas">Entradas</button>
+                    <button class="filter-btn" data-category="pastas">Pastas</button>
+                    <button class="filter-btn" data-category="pizzas">Pizzas</button>
+                    <button class="filter-btn" data-category="postres">Postres</button>
+                </div>
+
+                <div class="menu-grid" id="menu-restaurante">
+                    <!-- ENTRADAS -->
+                    <div class="menu-item" data-category="entradas">
+                        <img src="https://via.placeholder.com/250x200?text=Bruschetta" alt="Bruschetta al Pomodoro">
+                        <div class="item-info">
+                            <h3>Bruschetta al Pomodoro</h3>
+                            <p>Pan tostado con tomate fresco, ajo y albahaca</p>
+                            <div class="item-footer">
+                                <span class="precio">$8.50</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Bruschetta al Pomodoro', 8.50, 'restaurante')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="entradas">
+                        <img src="https://via.placeholder.com/250x200?text=Calamares" alt="Calamares Fritos">
+                        <div class="item-info">
+                            <h3>Calamares Fritos</h3>
+                            <p>Calamares tiernos con salsa marinera</p>
+                            <div class="item-footer">
+                                <span class="precio">$12.00</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Calamares Fritos', 12.00, 'restaurante')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="entradas">
+                        <img src="https://via.placeholder.com/250x200?text=Tabla+Quesos" alt="Tabla de Quesos">
+                        <div class="item-info">
+                            <h3>Tabla de Quesos y Embutidos</h3>
+                            <p>Selección de quesos italianos y jamón serrano</p>
+                            <div class="item-footer">
+                                <span class="precio">$16.00</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Tabla de Quesos y Embutidos', 16.00, 'restaurante')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PASTAS -->
+                    <div class="menu-item" data-category="pastas">
+                        <img src="https://via.placeholder.com/250x200?text=Spaghetti+Carbonara" alt="Spaghetti a la Carbonara">
+                        <div class="item-info">
+                            <h3>Spaghetti a la Carbonara</h3>
+                            <p>Pasta con huevo, queso pecorino y guanciale</p>
+                            <div class="item-footer">
+                                <span class="precio">$14.00</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Spaghetti a la Carbonara', 14.00, 'restaurante')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="pastas">
+                        <img src="https://via.placeholder.com/250x200?text=Pappardelle+Bolognesa" alt="Pappardelle a la Bolognesa">
+                        <div class="item-info">
+                            <h3>Pappardelle a la Bolognesa</h3>
+                            <p>Pasta ancha con ragú tradicional boloñés</p>
+                            <div class="item-footer">
+                                <span class="precio">$15.50</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Pappardelle a la Bolognesa', 15.50, 'restaurante')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="pastas">
+                        <img src="https://via.placeholder.com/250x200?text=Ravioli+Ricotta" alt="Ravioli de Ricotta">
+                        <div class="item-info">
+                            <h3>Ravioli de Ricotta y Espinaca</h3>
+                            <p>Ravioli casero relleno de ricotta y espinaca fresca</p>
+                            <div class="item-footer">
+                                <span class="precio">$13.50</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Ravioli de Ricotta y Espinaca', 13.50, 'restaurante')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PIZZAS -->
+                    <div class="menu-item" data-category="pizzas">
+                        <img src="https://via.placeholder.com/250x200?text=Pizza+Margherita" alt="Pizza Margherita">
+                        <div class="item-info">
+                            <h3>Pizza Margherita</h3>
+                            <p>Tomate, mozzarella fresca y albahaca</p>
+                            <div class="item-footer">
+                                <span class="precio">$11.00</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Pizza Margherita', 11.00, 'restaurante')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="pizzas">
+                        <img src="https://via.placeholder.com/250x200?text=Pizza+Quattro+Formaggi" alt="Pizza Quattro Formaggi">
+                        <div class="item-info">
+                            <h3>Pizza Quattro Formaggi</h3>
+                            <p>Mozzarella, gorgonzola, parmesano y ricotta</p>
+                            <div class="item-footer">
+                                <span class="precio">$13.50</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Pizza Quattro Formaggi', 13.50, 'restaurante')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="pizzas">
+                        <img src="https://via.placeholder.com/250x200?text=Pizza+Diavola" alt="Pizza Diavola">
+                        <div class="item-info">
+                            <h3>Pizza Diavola</h3>
+                            <p>Tomate, mozzarella, salami picante y peperoncino</p>
+                            <div class="item-footer">
+                                <span class="precio">$12.50</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Pizza Diavola', 12.50, 'restaurante')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- POSTRES -->
+                    <div class="menu-item" data-category="postres">
+                        <img src="https://via.placeholder.com/250x200?text=Tiramisu" alt="Tiramisú">
+                        <div class="item-info">
+                            <h3>Tiramisú</h3>
+                            <p>Postre italiano con café y mascarpone</p>
+                            <div class="item-footer">
+                                <span class="precio">$7.50</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Tiramisú', 7.50, 'restaurante')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="postres">
+                        <img src="https://via.placeholder.com/250x200?text=Panna+Cotta" alt="Panna Cotta">
+                        <div class="item-info">
+                            <h3>Panna Cotta</h3>
+                            <p>Crema suave con frutos rojos</p>
+                            <div class="item-footer">
+                                <span class="precio">$6.50</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Panna Cotta', 6.50, 'restaurante')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="postres">
+                        <img src="https://via.placeholder.com/250x200?text=Gelato" alt="Gelato Italiano">
+                        <div class="item-info">
+                            <h3>Gelato Italiano</h3>
+                            <p>Helado artesanal en 3 sabores a elegir</p>
+                            <div class="item-footer">
+                                <span class="precio">$5.00</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Gelato Italiano', 5.00, 'restaurante')">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pedido-section">
+                <button class="btn btn-whatsapp" onclick="enviarPorWhatsApp('restaurante')">📱 Reservar Mesa por WhatsApp</button>
+            </div>
+        </section>
+
+        <!-- 3. ROTISERÍA -->
+        <section id="rotiseria" class="unidad-negocio">
+            <div class="section-header">
+                <h2>🍗 Rotisería</h2>
+                <p>Recoge deliciosos asados y comidas caseras para llevar</p>
+            </div>
+
+            <div class="menu-container">
+                <div class="menu-filters">
+                    <button class="filter-btn active" data-category-roti="todos">Todos</button>
+                    <button class="filter-btn" data-category-roti="pollos">Pollos</button>
+                    <button class="filter-btn" data-category-roti="carnes">Carnes</button>
+                    <button class="filter-btn" data-category-roti="acompañamientos">Acompañamientos</button>
+                </div>
+
+                <div class="menu-grid" id="menu-rotiseria">
+                    <!-- POLLOS -->
+                    <div class="menu-item" data-category-roti="pollos">
+                        <img src="https://via.placeholder.com/250x200?text=Pollo+Entero" alt="Pollo Entero a la Brasa">
+                        <div class="item-info">
+                            <h3>Pollo Entero a la Brasa</h3>
+                            <p>Pollo jugoso asado a fuego lento con especias</p>
+                            <div class="item-footer">
+                                <span class="precio">$22.00</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Pollo Entero a la Brasa', 22.00, 'rotiseria')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category-roti="pollos">
+                        <img src="https://via.placeholder.com/250x200?text=Medio+Pollo" alt="Medio Pollo">
+                        <div class="item-info">
+                            <h3>Medio Pollo a la Brasa</h3>
+                            <p>Media porción de pollo tierno y dorado</p>
+                            <div class="item-footer">
+                                <span class="precio">$13.00</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Medio Pollo a la Brasa', 13.00, 'rotiseria')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category-roti="pollos">
+                        <img src="https://via.placeholder.com/250x200?text=Cuarto+Pollo" alt="Cuarto de Pollo">
+                        <div class="item-info">
+                            <h3>Cuarto de Pollo</h3>
+                            <p>Pechuga o muslo asado a la perfección</p>
+                            <div class="item-footer">
+                                <span class="precio">$9.00</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Cuarto de Pollo', 9.00, 'rotiseria')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARNES -->
+                    <div class="menu-item" data-category-roti="carnes">
+                        <img src="https://via.placeholder.com/250x200?text=Costillas" alt="Costillas BBQ">
+                        <div class="item-info">
+                            <h3>Costillas BBQ (500g)</h3>
+                            <p>Costillas tiernas con salsa BBQ casera</p>
+                            <div class="item-footer">
+                                <span class="precio">$18.00</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Costillas BBQ (500g)', 18.00, 'rotiseria')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category-roti="carnes">
+                        <img src="https://via.placeholder.com/250x200?text=Carne+Asada" alt="Carne Asada">
+                        <div class="item-info">
+                            <h3>Carne Asada (500g)</h3>
+                            <p>Carne de res marinada y asada</p>
+                            <div class="item-footer">
+                                <span class="precio">$20.00</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Carne Asada (500g)', 20.00, 'rotiseria')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category-roti="carnes">
+                        <img src="https://via.placeholder.com/250x200?text=Surtido+Carnes" alt="Surtido de Carnes">
+                        <div class="item-info">
+                            <h3>Surtido de Carnes (1kg)</h3>
+                            <p>Pollo, costillas y carne asada en variedad</p>
+                            <div class="item-footer">
+                                <span class="precio">$45.00</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Surtido de Carnes (1kg)', 45.00, 'rotiseria')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ACOMPAÑAMIENTOS -->
+                    <div class="menu-item" data-category-roti="acompañamientos">
+                        <img src="https://via.placeholder.com/250x200?text=Papas" alt="Papas Rústicas">
+                        <div class="item-info">
+                            <h3>Papas Rústicas (500g)</h3>
+                            <p>Papas al horno con hierbas aromáticas</p>
+                            <div class="item-footer">
+                                <span class="precio">$5.00</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Papas Rústicas (500g)', 5.00, 'rotiseria')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category-roti="acompañamientos">
+                        <img src="https://via.placeholder.com/250x200?text=Ensalada+Fresca" alt="Ensalada Fresca">
+                        <div class="item-info">
+                            <h3>Ensalada Fresca (500g)</h3>
+                            <p>Mix de verduras frescas con aliño casero</p>
+                            <div class="item-footer">
+                                <span class="precio">$4.50</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Ensalada Fresca (500g)', 4.50, 'rotiseria')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category-roti="acompañamientos">
+                        <img src="https://via.placeholder.com/250x200?text=Maiz+Choclo" alt="Maíz Choclo">
+                        <div class="item-info">
+                            <h3>Maíz Choclo Asado</h3>
+                            <p>Mazorca tierna con mantequilla</p>
+                            <div class="item-footer">
+                                <span class="precio">$3.50</span>
+                                <button class="btn-agregar" onclick="agregarAlCarrito('Maíz Choclo Asado', 3.50, 'rotiseria')">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pedido-section">
+                <button class="btn btn-whatsapp" onclick="enviarPorWhatsApp('rotiseria')">📱 Hacer Pedido por WhatsApp</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- CARRITO FLOTANTE -->
+    <div id="carrito-flotante" class="carrito-flotante hidden">
+        <div class="carrito-header">
+            <h3>Tu Pedido</h3>
+            <button class="cerrar-carrito" onclick="cerrarCarrito()">✕</button>
+        </div>
+        <div id="carrito-items" class="carrito-items">
+            <!-- Items del carrito se agregan aquí -->
+        </div>
+        <div class="carrito-total">
+            <strong>Total: $<span id="total-carrito">0.00</span></strong>
+        </div>
+        <form id="formulario-pedido" class="formulario-pedido">
+            <input type="text" id="nombre-cliente" placeholder="Tu nombre" required>
+            <select id="tipo-servicio" required>
+                <option value="">Selecciona tipo de servicio</option>
+                <option value="reserva">Reserva de Mesa (Restaurante)</option>
+                <option value="inscripcion">Inscripción Escuela</option>
+                <option value="recoger">Pedido para Recoger (Rotisería)</option>
+            </select>
+            <button type="button" class="btn btn-confirmar" onclick="confirmarPedidoWhatsApp()">Enviar por WhatsApp</button>
+        </form>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2024 Gastronomía. Todos los derechos reservados.</p>
+        <p>📱 Contáctanos | 📍 Ubicación | ⏰ Horarios</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
